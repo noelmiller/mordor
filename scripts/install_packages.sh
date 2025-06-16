@@ -22,6 +22,8 @@ niri_packages=(
   "waybar"
   "swaybg"
   "sddm"
+  "pavucontrol"
+  "mako"
 )
 
 sysadmin_packages=(
