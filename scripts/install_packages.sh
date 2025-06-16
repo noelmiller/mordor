@@ -65,6 +65,7 @@ programming_packages=(
 
 # including firefox because vscode needs it
 utility_packages=(
+  "brightnessctl"
   "fastfetch"
   "firefox"
   "keyd"
