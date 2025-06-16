@@ -1,11 +1,12 @@
 #!/bin/bash
 
+set -ouex pipefail
+
 dnf5 -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release{,-extras}
 dnf5 -y config-manager setopt "terra".enabled=true
-
 dnf5 -y config-manager addrepo --overwrite --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 
-set -ouex pipefail
+dnf5 -y copr enable ublue-os/packages
 
 # Packages
 
@@ -50,6 +51,7 @@ programming_packages=(
   "git-lfs"
   "insync"
   "nodejs"
+  "ublue-brew"
 )
 
 # including firefox because vscode needs it
@@ -91,5 +93,9 @@ packages=(
 # install rpms
 dnf5 install -y ${packages[@]}
 
+# for brew
+curl -Lo /usr/share/bash-prexec https://raw.githubusercontent.com/ublue-os/bash-preexec/master/bash-preexec.sh
+
 dnf5 -y config-manager setopt "terra".enabled=false
 dnf5 config-manager setopt "*tailscale*".enabled=0
+dnf5 -y copr disable ublue-os/packages
