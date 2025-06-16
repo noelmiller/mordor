@@ -54,6 +54,7 @@ programming_packages=(
 
 # including firefox because vscode needs it
 utility_packages=(
+  "fastfetch"
   "firefox"
   "keyd"
   "neohtop"
