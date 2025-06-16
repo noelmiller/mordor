@@ -9,7 +9,7 @@ set -ouex pipefail
 niri_packages=(
   "niri"
   "gnome-keyring"
-  "xdg-desktop-portal-gnome
+  "xdg-desktop-portal-gnome"
   "xdg-desktop-portal-gtk"
   "xwayland-satellite"
   "alacritty"
@@ -72,6 +72,7 @@ docker_packages=(
 )
 
 packages=(
+  ${niri_packages[@]}
   ${sysadmin_packages[@]}
   ${programming_packages[@]}
   ${utility_packages[@]}
