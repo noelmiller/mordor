@@ -11,7 +11,7 @@ disconnect-home:
     tailscale down
 
 # Install system flatpaks
-_install-isengard-flatpaks:
+_install-mordor-flatpaks:
     #!/bin/bash
     MORDOR_FLATPAK_LIST="$(curl https://raw.githubusercontent.com/noelmiller/mordor/main/flatpaks/mordor_flatpaks | tr '\n' ' ')"
     echo "Installing Mordor Flatpaks.."
