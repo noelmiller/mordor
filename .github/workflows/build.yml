@@ -50,7 +50,7 @@ jobs:
         run: |
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
               if [[ "${{ github.base_ref}}" == "main" ]]; then
-                  echo ARG_IMAGE_TAG="stable" >> $GITHUB_ENV
+                  echo ARG_IMAGE_TAG="latest" >> $GITHUB_ENV
               fi
           fi
 
@@ -59,8 +59,8 @@ jobs:
           VARIANT="${{ env.ARG_IMAGE_TAG }}"
 
           if [[ "${VARIANT}" == "main" ]]; then
-              VARIANT="stable"
-              echo ARG_IMAGE_TAG="stable" >> $GITHUB_ENV
+              VARIANT="latest"
+              echo ARG_IMAGE_TAG="latest" >> $GITHUB_ENV
           fi
 
           COMMIT_TAGS=()
