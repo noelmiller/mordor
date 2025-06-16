@@ -31,7 +31,7 @@ jobs:
         id: generate-tag
         shell: bash
         run: |
-          TAG="stable"
+          TAG="latest"
 
           if [[ -n "${{ github.event.number }}" ]]; then
             TAG="pr-${{ github.event.number }}"
