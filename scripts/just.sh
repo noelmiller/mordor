@@ -2,4 +2,4 @@
 
 set -ouex pipefail
 
-echo "import \"/usr/share/ublue-os/just/80-isengard.just\"" >> /usr/share/ublue-os/justfile
+echo "import \"/usr/share/ublue-os/just/80-mordor.just\"" >> /usr/share/ublue-os/justfile
