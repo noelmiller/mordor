@@ -7,6 +7,7 @@ dnf5 -y config-manager setopt "terra".enabled=true
 dnf5 -y config-manager addrepo --overwrite --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 
 dnf5 -y copr enable ublue-os/packages
+dnf5 -y copr enable che/nerd-fonts
 
 # Packages
 
@@ -25,6 +26,14 @@ niri_packages=(
   "sddm"
   "pavucontrol"
   "mako"
+)
+
+fonts=(
+  "nerd-fonts"
+  "twitter-twemoji-fonts"
+  "google-noto-sans-cjk-fonts"
+  "lato-fonts"
+  "fira-code-fonts"
 )
 
 sysadmin_packages=(
@@ -88,6 +97,7 @@ packages=(
   ${utility_packages[@]}
   ${docker_packages[@]}
   ${obs_packages[@]}
+  ${fonts[@]}
 )
 
 # install rpms
