@@ -3,6 +3,9 @@
 dnf5 -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release{,-extras}
 dnf5 -y config-manager setopt "terra".enabled=true
 
+dnf5 -y config-manager addrepo --overwrite --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+dnf5 -y config-manager setopt "tailscale".enabled=true
+
 set -ouex pipefail
 
 # Packages
@@ -18,6 +21,7 @@ niri_packages=(
   "swaylock"
   "wireplumber"
   "waybar"
+  "swaybg"
   "sddm"
 )
 
@@ -55,6 +59,7 @@ utility_packages=(
   "syncthing"
   "stow"
   "scrcpy"
+  "tailscale"
 )
 
 obs_packages=(
@@ -85,3 +90,4 @@ packages=(
 dnf5 install -y ${packages[@]}
 
 dnf5 -y config-manager setopt "terra".enabled=false
+dnf5 -y config-manager setopt "tailscale".enabled=false
