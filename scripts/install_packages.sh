@@ -27,6 +27,8 @@ niri_packages=(
   "pavucontrol"
   "mako"
   "dolphin"
+  "qt6-qtquickcontrols2"
+  "qt6-qtsvg"
 )
 
 fonts=(
