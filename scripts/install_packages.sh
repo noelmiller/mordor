@@ -2,10 +2,18 @@
 
 set -ouex pipefail
 
+# configure terra repo
 dnf5 -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release{,-extras}
 dnf5 -y config-manager setopt "terra".enabled=true
+
+# configure tailscale repo
 dnf5 -y config-manager addrepo --overwrite --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 
+# configure rpmfusion repos
+dnf5 -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+dnf5 -y install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+# enable ublue-os and nerd-fonts copr repos
 dnf5 -y copr enable ublue-os/packages
 dnf5 -y copr enable che/nerd-fonts
 
@@ -84,6 +92,7 @@ obs_packages=(
   "obs-studio-plugin-droidcam"
   "obs-studio-plugin-vaapi"
   "obs-studio-plugin-webkitgtk"
+  "v4l2loopback"
 )
 
 docker_packages=(
@@ -110,6 +119,19 @@ dnf5 install -y ${packages[@]}
 # for brew
 curl -Lo /usr/share/bash-prexec https://raw.githubusercontent.com/ublue-os/bash-preexec/master/bash-preexec.sh
 
+# disable repos
+
+# terra
 dnf5 -y config-manager setopt "terra".enabled=false
+
+# tailscale
 dnf5 config-manager setopt "*tailscale*".enabled=0
+
+# packages
 dnf5 -y copr disable ublue-os/packages
+
+# fonts
+dnf5 -y copr disable che/nerd-fonts
+
+# rpmfusion
+dnf5 -y config-manager setopt "*rpmfusion*".enabled=0
