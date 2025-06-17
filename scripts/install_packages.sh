@@ -26,6 +26,7 @@ niri_packages=(
   "sddm"
   "pavucontrol"
   "mako"
+  "dolphin"
 )
 
 fonts=(
@@ -69,8 +70,7 @@ utility_packages=(
   "fastfetch"
   "firefox"
   "keyd"
-  "neohtop"
-  "syncthing"
+  "seahorse"
   "stow"
   "scrcpy"
   "tailscale"
