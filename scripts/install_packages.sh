@@ -110,12 +110,17 @@ packages=(
   ${programming_packages[@]}
   ${utility_packages[@]}
   ${docker_packages[@]}
-  ${obs_packages[@]}
   ${fonts[@]}
 )
 
 # install rpms
 dnf5 install -y ${packages[@]}
+
+# rpmfusion
+dnf5 -y config-manager setopt "*rpmfusion*".enabled=0
+
+# install obs packages only from fedora repos
+dnf5 install -y ${obs_packages[@]}
 
 # for brew
 curl -Lo /usr/share/bash-prexec https://raw.githubusercontent.com/ublue-os/bash-preexec/master/bash-preexec.sh
@@ -133,6 +138,3 @@ dnf5 -y copr disable ublue-os/packages
 
 # fonts
 dnf5 -y copr disable che/nerd-fonts
-
-# rpmfusion
-dnf5 -y config-manager setopt "*rpmfusion*".enabled=0
