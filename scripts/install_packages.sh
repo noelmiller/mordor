@@ -37,6 +37,7 @@ niri_packages=(
   "polkit-kde"
   "qt6-qtquickcontrols2"
   "qt6-qtsvg"
+  "ntfs-3g"
 )
 
 fonts=(
