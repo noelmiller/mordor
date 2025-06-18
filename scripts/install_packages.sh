@@ -33,7 +33,7 @@ niri_packages=(
   "sddm"
   "pavucontrol"
   "mako"
-  "dolphin"
+  "nautilus"
   "polkit-kde"
   "qt6-qtquickcontrols2"
   "qt6-qtsvg"
