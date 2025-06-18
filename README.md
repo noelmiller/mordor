@@ -23,9 +23,9 @@ These are the features included in my image!
 
 ## Packages
 
-The full list of rpm packages can be found in [packages.sh](scripts/install_packages.sh).
+The full list of rpm packages can be found in [install_packages.sh](scripts/install_packages.sh).
 
-The full list of flatpaks can be found in [flatpaks.sh](flatpaks/mordor_flatpaks)
+The full list of flatpaks can be found in [mordor_flatpaks](flatpaks/mordor_flatpaks)
 
 ## Configuration
 
