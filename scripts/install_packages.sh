@@ -4,7 +4,6 @@ set -ouex pipefail
 
 # configure terra repo
 dnf5 -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release{,-extras}
-dnf5 -y config-manager setopt "terra".enabled=true
 
 # configure tailscale repo
 dnf5 -y config-manager addrepo --overwrite --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
@@ -12,6 +11,12 @@ dnf5 -y config-manager addrepo --overwrite --from-repofile=https://pkgs.tailscal
 # configure rpmfusion repos
 dnf5 -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 dnf5 -y install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+# set priority for repos
+dnf5 -y config-manager setopt "*terra*".priority=1 "*terra*".exclude="nerd-fonts topgrade"
+dnf5 -y config-manager --set-priority=2 'tailscale'
+dnf5 -y config-manager --set-priority=3 'rpmfusion-free'
+dnf5 -y config-manager --set-priority=3 'rpmfusion-nonfree'
 
 # enable ublue-os and nerd-fonts copr repos
 dnf5 -y copr enable ublue-os/packages
@@ -110,17 +115,12 @@ packages=(
   ${programming_packages[@]}
   ${utility_packages[@]}
   ${docker_packages[@]}
+  ${obs_packages[@]}
   ${fonts[@]}
 )
 
 # install rpms
 dnf5 install -y ${packages[@]}
-
-# rpmfusion
-dnf5 -y config-manager setopt "*rpmfusion*".enabled=0
-
-# install obs packages only from fedora repos
-dnf5 install -y ${obs_packages[@]}
 
 # for brew
 curl -Lo /usr/share/bash-prexec https://raw.githubusercontent.com/ublue-os/bash-preexec/master/bash-preexec.sh
@@ -138,3 +138,6 @@ dnf5 -y copr disable ublue-os/packages
 
 # fonts
 dnf5 -y copr disable che/nerd-fonts
+
+# rpmfusion
+dnf5 -y config-manager setopt "*rpmfusion*".enabled=0
