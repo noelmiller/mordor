@@ -8,7 +8,7 @@ dnf5 -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/te
 # configure tailscale repo
 dnf5 -y config-manager addrepo --overwrite --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 
-dnf config-manager --add-repo=https://negativo17.org/repos/fedora-multimedia.repo
+dnf5 -y config-manager addrepo --overwrite --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
 
 # enable ublue-os and nerd-fonts copr repos
 dnf5 -y copr enable ublue-os/packages
