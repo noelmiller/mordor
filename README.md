@@ -1,6 +1,8 @@
 # Mordor
 [![build-mordor](https://github.com/noelmiller/mordor/actions/workflows/build.yml/badge.svg)](https://github.com/noelmiller/mordor/actions/workflows/build.yml)
 
+![Screenshot of Mordor](assets/screenshot.png)
+
 ![Mordor Logo](assets/logo.jpg)
 
 Custom Fedora Atomic Image for Desktops and Laptops. This image ships the [Niri Window Manager](https://github.com/YaLTeR/niri). I have tried to make it as easy to use out of the box as possible.
