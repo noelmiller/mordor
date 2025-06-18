@@ -8,13 +8,7 @@ dnf5 -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/te
 # configure tailscale repo
 dnf5 -y config-manager addrepo --overwrite --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 
-# configure rpmfusion repos
-dnf5 -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-dnf5 -y install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-
-# set priority for repos
-dnf5 -y config-manager setopt "*terra*".priority=1 "*terra*".exclude="nerd-fonts topgrade"
-dnf5 -y config-manager setopt "*rpmfusion*".priority=2
+dnf config-manager --add-repo=https://negativo17.org/repos/fedora-multimedia.repo
 
 # enable ublue-os and nerd-fonts copr repos
 dnf5 -y copr enable ublue-os/packages
@@ -138,4 +132,4 @@ dnf5 -y copr disable ublue-os/packages
 dnf5 -y copr disable che/nerd-fonts
 
 # rpmfusion
-dnf5 -y config-manager setopt "*rpmfusion*".enabled=0
+dnf5 -y config-manager setopt "*fedora-multimedia*".enabled=0
