@@ -17,6 +17,8 @@ dnf5 -y install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-r
 dnf5 -y copr enable ublue-os/packages
 dnf5 -y copr enable che/nerd-fonts
 
+dnf5 -y v4l2loopback /tmp/akmods-rpms/kmods/*v4l2loopback*.rpm
+
 # Packages
 
 niri_packages=(
