@@ -14,9 +14,7 @@ dnf5 -y install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-r
 
 # set priority for repos
 dnf5 -y config-manager setopt "*terra*".priority=1 "*terra*".exclude="nerd-fonts topgrade"
-dnf5 -y config-manager --set-priority=2 'tailscale'
-dnf5 -y config-manager --set-priority=3 'rpmfusion-free'
-dnf5 -y config-manager --set-priority=3 'rpmfusion-nonfree'
+dnf5 -y config-manager setopt "*rpmfusion*".priority=2
 
 # enable ublue-os and nerd-fonts copr repos
 dnf5 -y copr enable ublue-os/packages
