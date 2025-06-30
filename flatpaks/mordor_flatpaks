@@ -9,3 +9,8 @@ app/org.gimp.GIMP/x86_64/stable
 app/org.inkscape.Inkscape/x86_64/stable
 app/org.signal.Signal/x86_64/stable
 app/org.videolan.VLC/x86_64/stable
+app/org.audacityteam.Audacity/x86_64/stable
+app/app.zen_browser.zen/x86_64/stable
+app/com.microsoft.Edge/x86_64/stable
+app/org.libreoffice.LibreOffice/x86_64/stable
+app/com.github.tchx84.Flatseal/x86_64/stable
