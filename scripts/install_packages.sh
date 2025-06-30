@@ -38,6 +38,7 @@ niri_packages=(
   "qt6-qtquickcontrols2"
   "qt6-qtsvg"
   "ntfs-3g"
+  "nm-connection-editor"
 )
 
 fonts=(
