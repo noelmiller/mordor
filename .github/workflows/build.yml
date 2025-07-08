@@ -38,8 +38,8 @@ jobs:
 
     steps:
       # Free up disk space 
-      #- name: Free Disk Space (Ubuntu)
-      #  uses: jlumbroso/free-disk-space@v1.3.1
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@v1.3.1
 
       - name: Mount BTRFS for podman storage
         uses: ublue-os/container-storage-action@main
