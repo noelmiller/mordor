@@ -14,6 +14,9 @@ sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/negativo17-fedora-multimedia.r
 dnf5 -y copr enable ublue-os/packages
 dnf5 -y copr enable che/nerd-fonts
 
+dnf5 -y config-manager setopt "*akmods*".priority=1
+dnf5 -y config-manager setopt "*terra*".priority=2 "*terra*".exclude="nerd-fonts topgrade"
+
 dnf5 -y install v4l2loopback /tmp/akmods-rpms/kmods/*v4l2loopback*.rpm
 
 # Packages
