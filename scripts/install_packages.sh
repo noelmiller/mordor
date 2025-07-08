@@ -74,6 +74,7 @@ programming_packages=(
   "insync"
   "nodejs"
   "ublue-brew"
+  "zed"
 )
 
 # including firefox because vscode needs it
