@@ -13,9 +13,14 @@
     "niri/workspaces": {
 	"format": "{icon}",
 	"format-icons": {
-	    // Icons by state
-	    "active": "",
-	    "default": ""
+	   // Example dedicated workspaces
+	   // "code": "",
+     // "browser": "",
+     // "chat": "",
+     // "video-editing": "",
+     // "media": "",
+        "active": "",
+	      "default": ""
 	}
     },
     "custom/music": {
@@ -44,9 +49,9 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-icons": ["", "", "", "", ""]
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-icons": ["", "", "", "", ""]
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
