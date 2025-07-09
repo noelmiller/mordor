@@ -26,7 +26,7 @@ gestures {
 
 // Code
 // spawn-at-startup "alacritty"
-// spawn-at-startup "dev.zed.Zed"
+// spawn-at-startup "zed"
 
 // Browser
 // spawn-at-startup "flatpak" "run" "app.zen_browser.zen"
