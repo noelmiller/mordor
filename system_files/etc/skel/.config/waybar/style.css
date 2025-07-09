@@ -1,9 +1,8 @@
-
 @import "mocha.css";
 
 * {
   font-family: FantasqueSansMono Nerd Font;
-  font-size: 14px;
+  font-size: 16px;
   min-height: 0;
 }
 
@@ -51,8 +50,9 @@
 
 #clock {
   color: @blue;
-  border-radius: 0px 1rem 1rem 0px;
+  margin-left: 1rem;
   margin-right: 1rem;
+  border-radius: 1rem;
 }
 
 #battery {
@@ -71,14 +71,19 @@
   color: @yellow;
 }
 
-#backlight, #battery {
-    border-radius: 0;
+#battery {
+    border-radius: 0 1rem 1rem 0;
+}
+
+#backlight {
+    border-radius: 1rem 0 0 1rem;
 }
 
 #pulseaudio {
   color: @maroon;
-  border-radius: 1rem 0px 0px 1rem;
   margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: 1rem;
 }
 
 #custom-music {
@@ -101,4 +106,3 @@
   margin-right: 1rem;
   border-radius: 1rem;
 }
-

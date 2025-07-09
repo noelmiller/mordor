@@ -13,9 +13,14 @@
     "niri/workspaces": {
 	"format": "{icon}",
 	"format-icons": {
-	    // Icons by state
-	    "active": "",
-	    "default": ""
+	   // Example dedicated workspaces
+	   // "code": "",
+     // "browser": "",
+     // "chat": "",
+     // "video-editing": "",
+     // "media": "",
+        "active": "",
+	      "default": ""
 	}
     },
     "custom/music": {
@@ -30,8 +35,8 @@
     "clock": {
         "timezone": "America/Chicago",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": " {:%d/%m/%Y}",
-        "format": " {:%H:%M}"
+        "format-alt": "{:%m/%d/%Y}",
+        "format": "{:%H:%M}"
     },
     "backlight": {
         "device": "intel_backlight",
@@ -43,11 +48,10 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}",
-        "format-charging": "",
-        "format-plugged": "",
-        "format-alt": "{icon}",
-        "format-icons": ["", "",  "", "", "", "", "", "", "", "", "", ""]
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-icons": ["", "", "", "", ""]
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -61,11 +65,11 @@
     "custom/lock": {
         "tooltip": false,
         "on-click": "sh -c '(sleep 0.5s; swaylock)' & disown",
-        "format": "",
+        "format": ""
     },
     "custom/power": {
         "tooltip": false,
         "on-click": "niri msg action quit &",
-        "format": "襤"
+        "format": ""
     }
 }
