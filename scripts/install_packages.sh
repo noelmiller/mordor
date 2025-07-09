@@ -71,6 +71,7 @@ sysadmin_packages=(
 )
 
 programming_packages=(
+  "chezmoi"
   "code"
   "gh"
   "git-lfs"
