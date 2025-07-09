@@ -42,6 +42,8 @@ niri_packages=(
   "qt6-qtsvg"
   "ntfs-3g"
   "nm-connection-editor"
+  "network-manager-applet"
+  "blueman"
 )
 
 fonts=(
@@ -72,7 +74,6 @@ sysadmin_packages=(
 
 programming_packages=(
   "chezmoi"
-  "code"
   "gh"
   "git-lfs"
   "insync"
@@ -87,6 +88,7 @@ utility_packages=(
   "fastfetch"
   "firefox"
   "keyd"
+  "kdenlive"
   "seahorse"
   "stow"
   "scrcpy"
