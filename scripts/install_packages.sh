@@ -77,6 +77,7 @@ programming_packages=(
   "gh"
   "git-lfs"
   "insync"
+  "neovim"
   "nodejs"
   "ublue-brew"
   "zed"
