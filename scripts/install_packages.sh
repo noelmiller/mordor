@@ -80,7 +80,7 @@ programming_packages=(
   "neovim"
   "nodejs"
   "ublue-brew"
-  "zed"
+  "zellij"
 )
 
 # including firefox because vscode needs it
