@@ -111,17 +111,17 @@ docker_packages=(
 )
 
 packages=(
-  "${niri_packages[@]}"
-  "${sysadmin_packages[@]}"
-  "${programming_packages[@]}"
-  "${utility_packages[@]}"
-  "${docker_packages[@]}"
-  "${obs_packages[@]}"
-  "${fonts[@]}"
+  ${niri_packages[@]}
+  ${sysadmin_packages[@]}
+  ${programming_packages[@]}
+  ${utility_packages[@]}
+  ${docker_packages[@]}
+  ${obs_packages[@]}
+  ${fonts[@]}
 )
 
 # install rpms
-dnf5 install -y "${packages[@]}"
+dnf5 install -y ${packages[@]}
 
 # for brew
 curl -Lo /usr/share/bash-prexec https://raw.githubusercontent.com/ublue-os/bash-preexec/master/bash-preexec.sh
