@@ -2,7 +2,7 @@
 Type=Application
 Name=System Update
 Comment=Update Mordor, Flatpaks, and more
-Icon=/usr/share/ublue-os/mordor/update.svg
+Icon=/usr/share/mordor/update.svg
 Categories=ConsoleOnly;System;
 Terminal=true
 Exec=/usr/bin/ujust update
