@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+if command -v /usr/bin/alacritty > /dev/null; then
+  if [[ -z "$@" ]]; then
+    /usr/bin/alacritty
+  else
+    /usr/bin/alacritty -e "$@"
+  fi
+fi
