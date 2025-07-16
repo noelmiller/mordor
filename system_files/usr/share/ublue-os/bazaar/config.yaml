@@ -1,0 +1,22 @@
+sections:
+  - title: "Favorite Apps"
+    subtitle: "Use these, they are great!"
+    rows: 4
+    # use the file:// prefix for a local file
+    banner: file:///usr/share/mordor/backgrounds/ublue.png
+    # can be "fill", "contain", "cover", or "scale-down"
+    banner-fit: cover
+    appids:
+      - app.zen_browser.zen
+      - com.google.Chrome
+      - com.microsoft.Edge
+      - com.discordapp.Discord
+      - im.riot.Riot
+      - com.slack.Slack
+      - org.signal.Signal
+      - com.spotify.Client
+      - org.videolan.VLC
+      - org.audacityteam.Audacity
+      - org.gimp.GIMP
+      - org.inkscape.Inkscape
+      - org.libreoffice.LibreOffice
