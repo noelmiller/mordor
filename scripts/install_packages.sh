@@ -87,7 +87,6 @@ programming_packages=(
   "zellij"
 )
 
-# including firefox because vscode needs it
 utility_packages=(
   "brightnessctl"
   "fastfetch"
