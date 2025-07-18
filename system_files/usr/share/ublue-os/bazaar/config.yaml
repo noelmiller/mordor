@@ -48,5 +48,6 @@ sections:
       - org.gimp.GIMP
       - org.inkscape.Inkscape
       - org.libreoffice.LibreOffice
+      - sh.ppy.osu
     classes:
       - mordor-section
