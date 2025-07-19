@@ -48,6 +48,9 @@ sections:
       - org.gimp.GIMP
       - org.inkscape.Inkscape
       - org.libreoffice.LibreOffice
+      - org.deluge_torrent.deluge
       - sh.ppy.osu
+      - dev.goats.xivlauncher
+      - org.xonotic.Xonotic
     classes:
       - mordor-section
