@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if gum confirm "Reboot the system?"; then
+  systemctl reboot
+else
+  echo "Reboot cancelled."
+fi
