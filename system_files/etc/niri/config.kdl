@@ -237,6 +237,18 @@ animations {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 
+// Update and Reboot Rules
+
+window-rule {
+    match title="Update Mordor System"
+    open-floating true
+  }
+
+window-rule {
+    match title="Reboot Mordor System"
+    open-floating true
+  }
+
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
 window-rule {
