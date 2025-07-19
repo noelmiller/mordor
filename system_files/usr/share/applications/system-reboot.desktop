@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Reboot System
+Comment=Reboot the system
+Icon=/usr/share/mordor/power.svg
+Categories=ConsoleOnly;System;
+Exec=/usr/bin/alacritty -T "Reboot Mordor System" -e /usr/bin/reboot-system
