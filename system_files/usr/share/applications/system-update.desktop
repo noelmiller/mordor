@@ -1,8 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=System Update
-Comment=Update Mordor, Flatpaks, and more
+Name=Update System
+Comment=Update Mordor System, Flatpaks, and more
 Icon=/usr/share/mordor/update.svg
 Categories=ConsoleOnly;System;
-Terminal=true
-Exec=/usr/bin/ujust update
+Exec=alacritty -T "Update Mordor System" -e /usr/bin/ujust update
