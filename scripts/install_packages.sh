@@ -29,6 +29,7 @@ niri_packages=(
   "blueman"
   "fuzzel"
   "gnome-keyring"
+  "gnome-disk-utility"
   "mako"
   "nautilus"
   "network-manager-applet"
