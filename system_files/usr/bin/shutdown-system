@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if gum confirm "Shut down the system?"; then
+  systemctl shutdown
+else
+  echo "Shutdown cancelled."
+fi
