@@ -249,6 +249,11 @@ window-rule {
     open-floating true
   }
 
+window-rule {
+    match title="Shutdown Mordor System"
+    open-floating true
+  }
+
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
 window-rule {
