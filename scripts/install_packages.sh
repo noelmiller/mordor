@@ -30,6 +30,7 @@ niri_packages=(
   "fuzzel"
   "gnome-keyring"
   "gnome-disk-utility"
+  "gum"
   "mako"
   "nautilus"
   "network-manager-applet"
