@@ -79,6 +79,7 @@ sysadmin_packages=(
 )
 
 programming_packages=(
+  "android-tools"
   "chezmoi"
   "gh"
   "git-lfs"
