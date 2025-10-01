@@ -37,6 +37,9 @@ jobs:
       id-token: write
 
     steps:
+      - name: Free Disk Space (Ubuntu)
+        uses: ublue-os/remove-unwanted-software@v8
+        
       - name: Mount BTRFS for podman storage
         uses: ublue-os/container-storage-action@main
         with:
