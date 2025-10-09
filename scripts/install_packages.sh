@@ -95,7 +95,6 @@ utility_packages=(
   "fastfetch"
   "kdenlive"
   "keyd"
-  "scrcpy"
   "seahorse"
   "tailscale"
 )
