@@ -38,7 +38,7 @@ jobs:
 
     steps:
       - name: Free Disk Space (Ubuntu)
-        uses: ublue-os/remove-unwanted-software@v8
+        uses: ublue-os/remove-unwanted-software@v9
         
       - name: Mount BTRFS for podman storage
         uses: ublue-os/container-storage-action@main
