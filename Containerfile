@@ -9,10 +9,11 @@ COPY system_files /
 COPY scripts /scripts
 
 RUN --mount=type=bind,from=akmods,source=/rpms,dst=/tmp/akmods-rpms \
-    /scripts/preconfigure.sh && \
-    /scripts/install_1password.sh && \
-    /scripts/install_packages.sh && \
-    /scripts/enable_services.sh && \
-    /scripts/just.sh && \
-    /scripts/cleanup.sh && \
-    ostree container commit
+  /scripts/01_preconfigure.sh && \
+  /scripts/02_install_1password.sh && \
+  /scripts/03_install_packages.sh && \
+  /scripts/04_configure_theme.sh && \
+  /scripts/05_enable_services.sh && \
+  /scripts/06_just.sh && \
+  /scripts/07_cleanup.sh && \
+  ostree container commit
