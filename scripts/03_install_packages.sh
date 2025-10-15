@@ -14,7 +14,12 @@ sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/negativo17-fedora-multimedia.r
 dnf5 -y copr enable ublue-os/packages
 # dnf5 -y copr enable ublue-os/staging
 dnf5 -y copr enable che/nerd-fonts
+
+# quickshell copr for noctalia
 dnf5 -y copr enable errornointernet/quickshell
+
+# gpus-screen-recorder for noctalia
+dnf5 -y copr enable brycensranch/gpu-screen-recorder-git
 
 dnf5 -y config-manager setopt "*akmods*".priority=1
 dnf5 -y config-manager setopt "*terra*".priority=2 "*terra*".exclude="nerd-fonts quickshell"
@@ -33,9 +38,9 @@ niri_packages=(
   "ddcutil"
   "gnome-keyring"
   "gnome-disk-utility"
+  "gpu-screen-recorder-ui"
   "gum"
   "nautilus"
-  "network-manager-applet"
   "niri"
   "nm-connection-editor"
   "ntfs-3g"
@@ -48,6 +53,7 @@ niri_packages=(
   "sddm"
   "topgrade"
   "wireplumber"
+  "wlsunset"
   "xdg-desktop-portal-gnome"
   "xdg-desktop-portal-gtk"
   "xwayland-satellite"
@@ -153,6 +159,9 @@ dnf5 -y copr disable che/nerd-fonts
 
 # quickshell
 dnf5 -y copr disable errornointernet/quickshell
+
+# gpu-screen-recorder
+dnf5 -y copr disable brycensranch/gpu-screen-recorder-git
 
 # rpmfusion
 dnf5 -y config-manager setopt "*fedora-multimedia*".enabled=0
