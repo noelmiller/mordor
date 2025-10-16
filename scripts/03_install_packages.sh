@@ -103,6 +103,7 @@ utility_packages=(
   "keyd"
   "seahorse"
   "tailscale"
+  "ydotool"
 )
 
 obs_packages=(
