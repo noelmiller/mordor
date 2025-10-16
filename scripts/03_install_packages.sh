@@ -40,6 +40,7 @@ niri_packages=(
   "gnome-disk-utility"
   "gpu-screen-recorder-ui"
   "gum"
+  "kde-connect"
   "nautilus"
   "niri"
   "nm-connection-editor"
