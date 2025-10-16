@@ -1,0 +1,2 @@
+enable noctalia.service
+enable xwayland-satellite.service

@@ -12,12 +12,18 @@ sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/negativo17-fedora-multimedia.r
 
 # enable ublue-os and nerd-fonts copr repos
 dnf5 -y copr enable ublue-os/packages
-dnf5 -y copr enable ublue-os/staging
+# dnf5 -y copr enable ublue-os/staging
 dnf5 -y copr enable che/nerd-fonts
 
+# quickshell copr for noctalia
+dnf5 -y copr enable errornointernet/quickshell
+
+# gpus-screen-recorder for noctalia
+dnf5 -y copr enable brycensranch/gpu-screen-recorder-git
+
 dnf5 -y config-manager setopt "*akmods*".priority=1
-dnf5 -y config-manager setopt "*terra*".priority=2 "*terra*".exclude="nerd-fonts"
-dnf5 -y config-manager setopt "*staging*".exclude="scx-scheds kf6-* mesa* mutter* rpm-ostree* systemd* gnome-shell gnome-settings-daemon gnome-control-center gnome-software libadwaita tuned*"
+dnf5 -y config-manager setopt "*terra*".priority=2 "*terra*".exclude="nerd-fonts quickshell"
+# dnf5 -y config-manager setopt "*staging*".exclude="scx-scheds kf6-* mesa* mutter* rpm-ostree* systemd* gnome-shell gnome-settings-daemon gnome-control-center gnome-software libadwaita tuned*"
 
 dnf5 -y install v4l2loopback /tmp/akmods-rpms/kmods/*v4l2loopback*.rpm
 
@@ -27,13 +33,14 @@ niri_packages=(
   "alacritty"
   "bazaar"
   "blueman"
-  "fuzzel"
+  "brightnessctl"
+  "cava"
+  "ddcutil"
   "gnome-keyring"
   "gnome-disk-utility"
+  "gpu-screen-recorder-ui"
   "gum"
-  "mako"
   "nautilus"
-  "network-manager-applet"
   "niri"
   "nm-connection-editor"
   "ntfs-3g"
@@ -42,12 +49,11 @@ niri_packages=(
   "qt6-qtsvg"
   "qt6-qtvirtualkeyboard"
   "qt6-qtmultimedia"
+  "quickshell"
   "sddm"
-  "swaybg"
-  "swaylock"
   "topgrade"
-  "waybar"
   "wireplumber"
+  "wlsunset"
   "xdg-desktop-portal-gnome"
   "xdg-desktop-portal-gtk"
   "xwayland-satellite"
@@ -92,7 +98,6 @@ programming_packages=(
 )
 
 utility_packages=(
-  "brightnessctl"
   "fastfetch"
   "kdenlive"
   "keyd"
@@ -128,6 +133,10 @@ packages=(
 # install rpms
 dnf5 install -y ${packages[@]}
 
+# install noctalia
+
+git clone "https://github.com/noctalia-dev/noctalia-shell.git" /usr/share/mordor/noctalia-shell
+
 # for brew
 curl -Lo /usr/share/bash-prexec https://raw.githubusercontent.com/ublue-os/bash-preexec/master/bash-preexec.sh
 
@@ -147,6 +156,12 @@ dnf5 -y copr disable ublue-os/packages
 
 # fonts
 dnf5 -y copr disable che/nerd-fonts
+
+# quickshell
+dnf5 -y copr disable errornointernet/quickshell
+
+# gpu-screen-recorder
+dnf5 -y copr disable brycensranch/gpu-screen-recorder-git
 
 # rpmfusion
 dnf5 -y config-manager setopt "*fedora-multimedia*".enabled=0

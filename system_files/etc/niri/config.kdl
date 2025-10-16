@@ -7,10 +7,6 @@
 // Find the full list of options on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
 
-
-// Configure xwayland-satellite
-spawn-at-startup "xwayland-satellite"
-
 environment {
 	DISPLAY ":0"
 }
@@ -21,24 +17,6 @@ gestures {
 		off
 	}
 }
-
-// Example Startup Programs
-
-// Code
-// spawn-at-startup "alacritty"
-// spawn-at-startup "zed"
-
-// Browser
-// spawn-at-startup "flatpak" "run" "app.zen_browser.zen"
-// spawn-at-startup "flatpak" "run" "app.zen_browser.zen"
-
-// Chat
-// spawn-at-startup "flatpak" "run" "com.discordapp.Discord"
-// spawn-at-startup "flatpak" "run" "com.slack.Slack"
-// spawn-at-startup "flatpak" "run" "im.riot.Riot"
-
-// Media
-// spawn-at-startup "flatpak" "run" "com.spotify.Client"
 
 input {
     keyboard {
@@ -59,7 +37,7 @@ input {
     // Omitting settings disables them, or leaves them at their default values.
     touchpad {
         // off
-        // tap
+        tap
         // dwt
         // dwtp
         // drag false
@@ -112,7 +90,7 @@ input {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 8
+    gaps 16
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -160,7 +138,7 @@ layout {
         // off
 
         // How many logical pixels the ring extends out from the windows.
-        width 2
+        width 4
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -285,77 +263,6 @@ window-rule {
     // block-out-from "screencast"
 }
 
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
-}
-
-// Example dedicated workspaces
-// workspace "code"
-//
-// workspace "browser"
-//
-// workspace "chat"
-//
-// workspace "video-editing"
-//
-// workspace "media"
-
-// Open Applications on specific workspaces
-
-// Code
-// window-rule {
-//     match app-id="Alacritty"
-//     open-on-workspace "code"
-// }
-//
-// window-rule {
-//     match app-id="dev.zed.Zed"
-//     open-on-workspace "code"
-// }
-//
-// // Browser
-// window-rule {
-//     match app-id="zen"
-//     open-on-workspace "browser"
-// }
-//
-// // Chat
-// window-rule {
-//     match app-id="discord"
-//     open-on-workspace "chat"
-// }
-//
-// window-rule {
-//     match app-id="im.riot.Riot"
-//     open-on-workspace "chat"
-// }
-//
-// window-rule {
-//     match app-id="Slack"
-//     open-on-workspace "chat"
-// }
-//
-// // Video Editing
-// window-rule {
-//     match app-id="com.obsproject.Studio"
-//     open-on-workspace "video-editing"
-// }
-//
-// window-rule {
-//     match app-id="scrcpy"
-//     open-on-workspace "video-editing"
-// }
-//
-// // Media
-// window-rule {
-//     match app-id="Spotify"
-//     open-maximized true
-//     open-on-workspace "media"
-// }
-
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
@@ -373,23 +280,23 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    // Mod+B hotkey-overlay-title="Run your default browser: zen-browser" { spawn "flatpak" "run" "app.zen_browser.zen"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+D { spawn "qs" "-c" "/usr/share/mordor/noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+B hotkey-overlay-title="Run your default browser: zen-browser" { spawn "flatpak" "run" "app.zen_browser.zen"; }
+    Mod+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "qs" "-c" "/usr/share/mordor/noctalia-shell" "ipc" "call" "lockScreen" "toggle"; }
 
-    // You can also use a shell. Do this if you need pipes, multiple commands, etc.
-    // Note: the entire command goes as a single argument in the end.
-    // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
+    // Core Noctalia binds
+    Mod+Space { spawn "qs" "-c" "/usr/share/mordor/noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+S { spawn "qs" "-c" "/usr/share/mordor/noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
+    Mod+Comma { spawn "qs" "-c" "/usr/share/mordor/noctalia-shell" "ipc" "call" "settings" "toggle"; }
 
-    // Example volume keys mappings for PipeWire & WirePlumber.
-    // The allow-when-locked=true property makes them work even when the session is locked.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+" "-l" "1"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
-    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    // Audio controls
+    XF86AudioRaiseVolume { spawn "qs" "-c" "/usr/share/mordor/noctalia-shell" "ipc" "call" "volume" "increase"; }
+    XF86AudioLowerVolume { spawn "qs" "-c" "/usr/share/mordor/noctalia-shell" "ipc" "call" "volume" "decrease"; }
+    XF86AudioMute { spawn "qs" "-c" "/usr/share/mordor/noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
 
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "s" "10%-"; }
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "s" "10%+"; }
+    // Brightness controls
+    XF86MonBrightnessUp { spawn "qs" "-c" "/usr/share/mordor/noctalia-shell" "ipc" "call" "brightness" "increase"; }
+    XF86MonBrightnessDown { spawn "qs" "-c" "/usr/share/mordor/noctalia-shell" "ipc" "call" "brightness" "decrease"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
@@ -556,7 +463,7 @@ binds {
     Mod+BracketRight { consume-or-expel-window-right; }
 
     // Consume one window from the right to the bottom of the focused column.
-    Mod+Comma  { consume-window-into-column; }
+    // Mod+Comma  { consume-window-into-column; }
     // Expel the bottom window from the focused column to the right.
     Mod+Period { expel-window-from-column; }
 
@@ -629,4 +536,24 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+}
+
+// Noctalia Rules
+
+window-rule {
+    geometry-corner-radius 20
+    clip-to-geometry true
+}
+
+layer-rule {
+    match namespace="^quickshell-overview$"
+    place-within-backdrop true
+}
+
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+
+switch-events {
+    lid-close { spawn "qs" "-p" "/usr/share/mordor/noctalia-shell" "ipc" "call" "lockScreen" "toggle"; }
 }
