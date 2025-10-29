@@ -1,7 +1,7 @@
 ARG BASE_IMAGE_NAME="${BASE_IMAGE_NAME:-base-main}"
-ARG IMAGE_TAG="${IMAGE_TAG:-latest}"
+ARG IMAGE_TAG="${IMAGE_TAG:-43}"
 
-FROM ghcr.io/ublue-os/akmods:main-42 as akmods
+FROM ghcr.io/ublue-os/akmods:main-43 as akmods
 
 FROM ghcr.io/ublue-os/${BASE_IMAGE_NAME}:${IMAGE_TAG} AS mordor
 
