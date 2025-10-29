@@ -24,7 +24,7 @@ env:
   MY_IMAGE_NAME: "mordor"
   ARG_IMAGE_TAG: "${{ github.ref_name }}"
   ARG_BASE_IMAGE_NAME: "base-main"
-  ARG_BAGE_IMAGE_TAG: "43"
+  ARG_BASE_IMAGE_TAG: "43"
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"
 
 jobs:
