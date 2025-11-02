@@ -1,0 +1,3 @@
+[submodule "deps/noctalia-shell"]
+	path = deps/noctalia-shell
+	url = https://github.com/noctalia-dev/noctalia-shell.git
