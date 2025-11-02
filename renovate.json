@@ -5,7 +5,7 @@
   ],
   "packageRules": [
     {
-      "matchPackageUrls": ["https://github.com/noctalia-dev/noctalia-shell"],
+      "matchPackageNames": ["deps/noctalia-shell"],
       "matchDatasources": ["git-tags"],
       "versioning": "semver",
       "extractVersion": "^v(?<version>.*)$"
