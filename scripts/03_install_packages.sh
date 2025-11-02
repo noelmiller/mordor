@@ -72,7 +72,6 @@ sysadmin_packages=(
   "cockpit-bridge"
   "cockpit-kdump"
   "cockpit-machines"
-  "cockpit-navigator"
   "cockpit-networkmanager"
   "cockpit-podman"
   "cockpit-selinux"

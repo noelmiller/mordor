@@ -22,8 +22,9 @@ concurrency:
 
 env:
   MY_IMAGE_NAME: "mordor"
-  ARG_BASE_IMAGE_NAME: "base-main"
   ARG_IMAGE_TAG: "${{ github.ref_name }}"
+  ARG_BASE_IMAGE_NAME: "base-main"
+  ARG_BASE_IMAGE_TAG: "43"
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"
 
 jobs:
@@ -56,6 +57,10 @@ jobs:
         id: generate-tags
         shell: bash
         run: |
+          # Create base image tag
+          echo ARG_BASE_IMAGE_TAG >> GITHUB_ENV
+
+          # create image tags
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
               if [[ "${{ github.base_ref}}" == "main" ]]; then
                   echo ARG_IMAGE_TAG="latest" >> $GITHUB_ENV
@@ -130,7 +135,7 @@ jobs:
       - name: Get current version
         id: labels
         run: |
-          ver=$(skopeo inspect docker://ghcr.io/ublue-os/${{ env.ARG_BASE_IMAGE_NAME }}:${{ env.ARG_IMAGE_TAG }} | jq -r '.Labels["org.opencontainers.image.version"]')
+          ver=$(skopeo inspect docker://ghcr.io/ublue-os/${{ env.ARG_BASE_IMAGE_NAME }}:${{ env.ARG_BASE_IMAGE_TAG }} | jq -r '.Labels["org.opencontainers.image.version"]')
           echo "VERSION=$ver" >> $GITHUB_OUTPUT
 
       # Build metadata
@@ -160,7 +165,7 @@ jobs:
             ${{ steps.generate-tags.outputs.alias_tags }}
           build-args: |
             BASE_IMAGE_NAME=${{ env.ARG_BASE_IMAGE_NAME }}
-            IMAGE_TAG=${{ env.ARG_IMAGE_TAG }}
+            IMAGE_TAG=${{ env.ARG_BASE_IMAGE_TAG }}
           labels: ${{ steps.meta.outputs.labels }}
           oci: false
 
