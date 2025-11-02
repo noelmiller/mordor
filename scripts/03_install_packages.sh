@@ -134,7 +134,7 @@ packages=(
 dnf5 install -y ${packages[@]}
 
 # install noctalia
-cp -r deps/noctalia-shell /usr/share/mordor/noctalia-shell
+cp -r /deps/noctalia-shell /usr/share/mordor/noctalia-shell
 
 # for brew
 curl -Lo /usr/share/bash-prexec https://raw.githubusercontent.com/ublue-os/bash-preexec/master/bash-preexec.sh
