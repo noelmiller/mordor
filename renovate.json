@@ -9,7 +9,7 @@
   "packageRules": [
     {
       "matchPackageNames": ["deps/noctalia-shell"],
-      "matchDatasources": ["git-tags"],
+      "datasource": "git-tags",
       "versioning": "semver",
       "extractVersion": "^v(?<version>.*)$"
     }
