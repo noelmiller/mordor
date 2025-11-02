@@ -146,7 +146,7 @@ curl -Lo /usr/share/bash-prexec https://raw.githubusercontent.com/ublue-os/bash-
 dnf5 -y config-manager setopt "terra".enabled=false
 
 # negativo17
-sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/negativo17-fedora-multimedia.repo
+sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/negativo17-fedora-multimedia.repo
 
 # tailscale
 dnf5 config-manager setopt "*tailscale*".enabled=0
