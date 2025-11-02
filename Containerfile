@@ -7,6 +7,7 @@ FROM ghcr.io/ublue-os/${BASE_IMAGE_NAME}:${IMAGE_TAG} AS mordor
 
 COPY system_files /
 COPY scripts /scripts
+COPY deps /deps
 
 RUN --mount=type=bind,from=akmods,source=/rpms,dst=/tmp/akmods-rpms \
   /scripts/01_preconfigure.sh && \
