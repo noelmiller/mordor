@@ -5,13 +5,5 @@
   ],
   "git-submodules": {
     "enabled": true
-  },
-  "packageRules": [
-    {
-      "matchPackageNames": ["deps/noctalia-shell"],
-      "datasource": "git-tags",
-      "versioning": "semver",
-      "extractVersion": "^v(?<version>.*)$"
-    }
-  ]
+  }
 }
