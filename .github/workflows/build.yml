@@ -50,6 +50,8 @@ jobs:
       # Checkout push-to-registry action GitHub repository
       - name: Checkout Push to Registry action
         uses: actions/checkout@v5
+        with:
+          submodules: recursive
 
       - name: Check just syntax
         uses: ublue-os/just-action@v2

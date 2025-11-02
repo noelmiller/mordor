@@ -10,7 +10,7 @@ concurrency:
 
 env:
   image_name: "mordor"
-  major_version: "41"
+  major_version: "43"
 
 jobs:
   build-iso:
@@ -20,12 +20,13 @@ jobs:
       packages: write
       id-token: write
     steps:
-
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@v1.3.1
 
       - name: Checkout Repo
         uses: actions/checkout@v5
+        with:
+          submodules: recursive
 
       - name: Set Image Tag
         id: generate-tag
@@ -99,11 +100,11 @@ jobs:
           arch: x86_64
           image_name: ${{ env.image_name }}
           image_repo: ghcr.io/noelmiller
-          variant: 'Kinoite'
+          variant: "Kinoite"
           version: ${{ env.major_version }}
           image_tag: ${{ steps.generate-tag.outputs.tag }}
-          secure_boot_key_url: 'https://github.com/ublue-os/akmods/raw/main/certs/public_key.der'
-          enrollment_password: 'universalblue'
+          secure_boot_key_url: "https://github.com/ublue-os/akmods/raw/main/certs/public_key.der"
+          enrollment_password: "universalblue"
           iso_name: ${{ env.image_name }}-${{ steps.generate-tag.outputs.tag }}.iso
           enable_cache_dnf: "false"
           enable_cache_skopeo: "false"
