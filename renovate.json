@@ -3,8 +3,12 @@
   "extends": [
     "config:base"
   ],
-  "git-submodules": {
-    "enabled": true,
-    "versioning": "semver"
-  }
+  "packageRules": [
+    {
+      "matchPackageUrls": ["https://github.com/noctalia-dev/noctalia-shell"],
+      "matchDatasources": ["git-tags"],
+      "versioning": "semver",
+      "extractVersion": "^v(?<version>.*)$"
+    }
+  ]
 }
