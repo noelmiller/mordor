@@ -1,8 +1,7 @@
-ARG BASE_IMAGE_NAME="${BASE_IMAGE_NAME:-base-main}"
-ARG IMAGE_TAG="${IMAGE_TAG:-latest}"
-
 FROM ghcr.io/ublue-os/akmods:main-42 as akmods
 
+ARG BASE_IMAGE_NAME="${BASE_IMAGE_NAME:-base-main}"
+ARG IMAGE_TAG="${IMAGE_TAG:-latest}"
 FROM ghcr.io/ublue-os/${BASE_IMAGE_NAME}:${IMAGE_TAG} AS mordor
 
 COPY system_files /
