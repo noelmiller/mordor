@@ -133,6 +133,8 @@ packages=(
 # install rpms
 dnf5 install -y ${packages[@]}
 
+rm /usr/share/doc/niri/wiki/Layer‐Shell-Components.md
+
 # install noctalia
 cp -r /deps/noctalia-shell /usr/share/mordor/noctalia-shell
 
